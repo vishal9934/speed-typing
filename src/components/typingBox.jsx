@@ -60,10 +60,40 @@ const TypingBox = () => {
                     return 0;
                 }
 
-                return latestCountDown - 1;
+                return (latestCountDown - 1);
             });
         }
     }
+
+    function resetTest(){
+        clearInterval(intervalId);
+        setCountDown(testTime)
+        setCurrWordIndex(0);
+        setCurrCharIndex(0);
+        setTestStart(false);
+        setTestEnd(false);
+        setWordsArray(randomWords(50)); 
+        
+           
+    //     setGraphData([]);
+    // setCorrectChars(0);
+    // setCorrectWords(0);
+    // setExtraChars(0);
+    // setIncorrectChars(0)
+    // setMissedChars(0);
+
+        focusInput();
+        resetWordsSpanRefClassname();
+    }
+    const resetWordsSpanRefClassname = () => {
+        wordsSpanRef.map(i => {
+            Array.from(i.current.childNodes).map(j => {
+                j.className = '';
+            })
+        });
+        wordsSpanRef[0].current.childNodes[0].className = 'current';
+    }
+
 //handling typing box
 
     function handleUserInput(e){
@@ -74,7 +104,7 @@ const TypingBox = () => {
         }
         if(wordsSpanRef[currWordIndex].current){
 
-        const allCurrChars=wordsSpanRef[currWordIndex].current.childNodes;
+        let allCurrChars=wordsSpanRef[currWordIndex].current.childNodes;
    
         //space functionality=> jump to new word(32 is key code for space key in keyboard)
          if(e.keyCode === 32){
@@ -82,12 +112,13 @@ const TypingBox = () => {
             //logic for space
           
 
-            let correctCharsInWord = wordsSpanRef[currCharIndex].current.querySelectorAll('correct');
+            let correctCharsInWord = wordsSpanRef[currWordIndex].current.querySelectorAll('.correct');
 
-            if (correctCharsInWord === allCurrChars.length) {
+            if (correctCharsInWord.length === allCurrChars.length) {
                 setCorrectWords(correctWords + 1);
             }
             console.log("sahi hai :" + correctWords)
+            console.log("sramm:" + correctCharsInWord)
  
             if (allCurrChars.length <= currCharIndex) {
                 //remove cursor from last place in a word
@@ -203,34 +234,9 @@ if (currCharIndex === allCurrChars.length) {
         inputRef.current.focus();
     }
      
-    const resetWordsSpanRefClassname = () => {
-        wordsSpanRef.map(i => {
-            Array.from(i.current.childNodes).map(j => {
-                j.className = '';
-            })
-        });
-        wordsSpanRef[0].current.childNodes[0].className = 'current';
-    }
 
-     function resetTest(){
-        clearInterval(intervalId);
-        setCountDown(testTime)
-        setCurrWordIndex(0);
-        setCurrCharIndex(0);
-        setTestStart(false);
-        setTestEnd(false);
-        setWordsArray(randomWords(50)); 
-        resetWordsSpanRefClassname();
-           
-    //     setGraphData([]);
-    // setCorrectChars(0);
-    // setCorrectWords(0);
-    // setExtraChars(0);
-    // setIncorrectChars(0)
-    // setMissedChars(0);
 
-        focusInput();
-    }
+   
       
     useEffect(() => {
         resetTest()
