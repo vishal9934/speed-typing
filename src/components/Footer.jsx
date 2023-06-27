@@ -20,6 +20,7 @@ const Footer = () => {
                 <a href='https://github.com/vishal9934' target='_blank'> <img className="icon" src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" alt="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png" /> </a>
                 <a href='https://www.linkedin.com/in/vishal-chandrawanshi-a31a56232/' target='_blank'>  <img className="icon" src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png" alt="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png" /> </a>
                 <a href='https://www.instagram.com/itz_mr._vishu/' target='_blank'> <img  className="icon" src="https://wallpapers-clan.com/wp-content/uploads/2022/01/black-3d-instagram-icon-aesthetic.png" /> </a>
+                
             </div>
             <div className="themeButton">
 

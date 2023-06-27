@@ -2,8 +2,11 @@ import React, {useRef, useState,useEffect,useMemo,createRef} from 'react'
 import UpperMenu from './UpperMenu';
 import { generate as randomWords } from 'random-words';
 import { useTestMode } from '../Context/TestModeContext';
+import { Button} from "@mui/material";
+
 import Stats from "./Stats"
 const TypingBox = () => {
+    
     
     const inputRef=useRef("null");
     //countdown for timer
@@ -97,7 +100,7 @@ const TypingBox = () => {
 //handling typing box
 
     function handleUserInput(e){
-    //start timer when user start typing
+    //start timer when user start typingd
         if(!testStart){
             startTimer();
             setTestStart(true);
@@ -215,6 +218,26 @@ if (currCharIndex === allCurrChars.length) {
     }
 }
 
+// to restart the test
+const redoTest = () => {
+    try {
+        clearInterval(intervalId);
+        setCountDown(testTime)
+        setCurrWordIndex(0);
+        setCurrCharIndex(0);
+        setTestStart(false);
+        setTestEnd(false);
+        setWordsArray(randomWords(50)); 
+
+        focusInput();
+        resetWordsSpanRefClassname();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+
              //calculate the WPM
 
                 const calculateWPM = () => {
@@ -250,9 +273,24 @@ if (currCharIndex === allCurrChars.length) {
 
   return (
     <div>
+        { testEnd ? (
+            ""
+        ) :
+        (
+            <div>
         <UpperMenu countDown={countDown}/>
+             </div>
+        )
+        }
         {
             (testEnd) ?(
+            <div>
+             <div>
+            <Button variant="contained" color="success" onClick={redoTest}>
+              Repeat test
+            </Button>
+          </div>
+            
                 <Stats wpm={calculateWPM()}
                     accuracy={calculateAcc()}
                     correctChars={correctChars}
@@ -261,7 +299,7 @@ if (currCharIndex === allCurrChars.length) {
                     extraChars={extraChars}
                     graphData={graphData}
                     resetTest={resetTest}
-                />)   : (
+                /> </div>)   : (
     <div className='type-box' onClick={focusInput}>
         <div className="words">
             {
