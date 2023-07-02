@@ -8,7 +8,7 @@ export const ThemeContextProvider = ({children})=>{
 
     //code for if user refresh the page theme not gone
     
-     const defaultValue = JSON.parse(localStorage.getItem('theme')) || themeOptions[0].value;
+     const defaultValue = JSON.parse(localStorage.getItem('theme')) || themeOptions[3].value;
     const [theme, setTheme] = useState(defaultValue);
 
     const values={

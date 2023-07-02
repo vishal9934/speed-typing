@@ -18,7 +18,7 @@ const LoginForm = ({handleClose}) => {
         if(!email || !password){
             toast.warning('Fill all details', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -32,7 +32,7 @@ const LoginForm = ({handleClose}) => {
         auth.signInWithEmailAndPassword(email ,password).then((res)=>{
             toast.success('Logged in', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -44,7 +44,7 @@ const LoginForm = ({handleClose}) => {
         }).catch((err)=>{
             toast.error(ErrorMapping[err.code] || 'some error ocurr', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

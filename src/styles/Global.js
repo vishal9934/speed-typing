@@ -202,5 +202,8 @@ body{
     display:flex;
     gap:14px;
 }
+
+
+
 `   
 export default GlobalStyles;

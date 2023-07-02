@@ -9,7 +9,7 @@ import { auth } from "./firebaseConfig";
 import HomePage from "./Pages/HomePage";
 import UserPage from "./Pages/UserPage";
 import {Routes, Route} from 'react-router-dom';
-
+import Error from "./Error"
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/user" element={<UserPage />} />
+          <Route path="/*" element={<Error/>}/>
           
         </Routes>
       </ThemeProvider>

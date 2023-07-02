@@ -3,8 +3,6 @@ import Graph from './Graph'
  import { useEffect } from 'react';
  import{ auth, db} from '../firebaseConfig';
  import {toast} from 'react-toastify'
- import { useNavigate } from 'react-router-dom';
-
 
 
 const Stats = (
@@ -25,14 +23,19 @@ const Stats = (
        }
    })
 
+   
  
+
+    //   if(isNaN(accuracy)){
+    //     accuracy=0;
+    //   }
 
    const pushDataToDB = ()=>{
     
     if(isNaN(accuracy)){
         toast.error('invalid test', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -52,7 +55,7 @@ const Stats = (
     }).then((res)=>{
         toast.success('Data save to DB', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -63,7 +66,7 @@ const Stats = (
     }).catch((err)=>{
         toast.error('not able to save result', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -82,7 +85,7 @@ const Stats = (
     else{
         toast.warning('Log in to save result', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -92,12 +95,6 @@ const Stats = (
             });
     }
    })
-//    const navigate = useNavigate()
-
-  
-//    const handleClick = () => {
-//     navigate("/");
-// };
 
 
     return (

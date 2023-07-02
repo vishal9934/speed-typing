@@ -6,6 +6,7 @@ const UpperMenu = ({ countDown }) => {
 
   const updateTime = (e) =>{
     setTestTime(Number(e.target.id));
+
   }
 
   return (

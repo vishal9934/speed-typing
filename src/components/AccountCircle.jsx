@@ -125,7 +125,7 @@ const AccountCircle = () => {
                             onChange={handelValueChange}
                             variant='fullWidth'>
                             <Tab label='login' style={{ color: theme.textColor }}></Tab>
-                            <Tab label='signup' style={{ color: theme.textColor }}></Tab>
+                            <Tab label='signup' style={{ color: theme.textColor}}></Tab>
                         </Tabs>
                     </AppBar>
                     {value === 0 && <LoginForm handleClose={handleClose} />}

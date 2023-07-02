@@ -2,10 +2,17 @@ import React from 'react';
 import Select from 'react-select';
 import { themeOptions } from '../Utils/themeOptions';
 import { useTheme } from '../Context/ThemeContext';
+import RefreshIcon from '@mui/icons-material/Refresh';
+
+
 const Footer = () => {
 
     
     const { setTheme,theme} = useTheme();
+
+    function refreshPage(){ 
+        window.location.reload(); 
+    }
 
     const handleChange = (e) => {
        setTheme(e.value);
@@ -22,6 +29,8 @@ const Footer = () => {
                 <a href='https://www.instagram.com/itz_mr._vishu/' target='_blank'> <img  className="icon" src="https://wallpapers-clan.com/wp-content/uploads/2022/01/black-3d-instagram-icon-aesthetic.png" /> </a>
                 
             </div>
+
+            <span style={{cursor:'pointer'}}onClick={refreshPage}><RefreshIcon fontSize="large" /></span>
             <div className="themeButton">
 
                   <Select  

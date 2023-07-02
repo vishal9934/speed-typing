@@ -113,6 +113,7 @@ const TypingBox = () => {
          if(e.keyCode === 32){
              
             //logic for space
+           
           
 
             let correctCharsInWord = wordsSpanRef[currWordIndex].current.querySelectorAll('.correct');
@@ -250,6 +251,7 @@ const redoTest = () => {
            const calculateAcc = () => {
             return Math.round((correctWords/currWordIndex)*100);
          }
+        
 
          
       //on page load the focus on inputbox

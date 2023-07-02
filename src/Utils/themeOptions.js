@@ -220,12 +220,12 @@ textColor: "#F8B195",
   stats: "#F8B195"
 };
 const rainbowDelightTheme = {
-textColor: "#FFFFFF",
+textColor: "#000000",
   label: "Rainbow Delight",
   background: "linear-gradient(to right, #FF5F6D, #FFC371, #FFEF96, #62D8D1, #8B5F84)",
   title: "#FFFFFF",
-  typeBoxText: "#333333",
-  stats: "#FFFFFF"
+  typeBoxText: "red",
+  
 };
 const neonGlowTheme = {
 textColor: "#FF00FF",
